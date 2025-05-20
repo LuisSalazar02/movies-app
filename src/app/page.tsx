@@ -63,25 +63,19 @@ export default function Home() {
       {loadingPopular ? (
         <p className="text-gray-500 text-sm">Loading Popular Movies...</p>
       ) : (
-        popular.length > 0 && (
-          <MovieSlider title="What's Popular" movies={popular} />
-        )
+        <MovieSlider title="What's Popular" movies={popular} />
       )}
 
       {loadingNowPlaying ? (
         <p className="text-gray-500 text-sm">Loading Now Playing...</p>
       ) : (
-        nowPlaying.length > 0 && (
-          <MovieSlider title="Now Playing" movies={nowPlaying} />
-        )
+        <MovieSlider title="Now Playing" movies={nowPlaying} />
       )}
 
       {loadingUpcoming ? (
         <p className="text-gray-500 text-sm">Loading Upcoming...</p>
       ) : (
-        upcoming.length > 0 && (
-          <MovieSlider title="Upcoming" movies={upcoming} />
-        )
+        <MovieSlider title="Upcoming" movies={upcoming} />
       )}
     </div>
   );
