@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { getTopRatedMovies } from "@/services/movies/getTopRatedMovies";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { IMovieDetail } from "@/types/MovieDetail";
 import MovieList from "@/components/MovieList/MovieList";
 
 const TopRatedPage = () => {
   const [loading, setLoading] = useState(false);
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<IMovieDetail[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -34,7 +35,7 @@ const TopRatedPage = () => {
       <h3 className="text-3xl font-bold mb-6">Top Rated</h3>
       {/* Loading indicator */}
       {loading ? (
-        <h5 className="text-lg text-gray-500">Cargando...</h5>
+        <h5 className="text-lg text-gray-500">Loading...</h5>
       ) : (
         <div>
           {/* Grid Layout */}

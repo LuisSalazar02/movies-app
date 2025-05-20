@@ -94,7 +94,7 @@ const MovieDetailPage = () => {
     }
   };
 
-  if (loading) return <div>Loading movie...</div>;
+  if (loading) return <div>Loading...</div>;
 
   if (error) return <div>{error}</div>;
 

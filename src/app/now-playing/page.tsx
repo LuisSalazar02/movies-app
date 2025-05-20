@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { getNowPlayingMovies } from "@/services/movies/getNowPlayingMovies";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { IMovieDetail } from "@/types/MovieDetail";
 import MovieList from "@/components/MovieList/MovieList";
 
 const NowPlayingPage = () => {
   const [loading, setLoading] = useState(false);
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<IMovieDetail[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -33,7 +34,7 @@ const NowPlayingPage = () => {
     <div>
       <h3 className="text-3xl font-bold mb-6">Now Playing</h3>
       {loading ? (
-        <h5 className="text-lg text-gray-500">Cargando...</h5>
+        <h5 className="text-lg text-gray-500">Loading...</h5>
       ) : (
         <div>
           {/* Grid Layout */}

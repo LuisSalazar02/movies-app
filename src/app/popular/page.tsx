@@ -3,18 +3,19 @@
 import React, { useEffect, useState } from "react";
 import { getPopularMovies } from "@/services/movies/getPopularMovies";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { IMovieDetail } from "@/types/MovieDetail";
 import MovieList from "@/components/MovieList/MovieList";
 
 const PopularClientPage = () => {
   const [loading, setLoading] = useState(false);
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<IMovieDetail[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // simulate 2s delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       try {
         const data = await getPopularMovies(page);
         setMovies(data.results);
@@ -34,7 +35,7 @@ const PopularClientPage = () => {
       <h3 className="text-3xl font-bold mb-6">Popular Movies</h3>
       {/* Loading indicator */}
       {loading ? (
-        <h5 className="text-lg text-gray-500">Cargando...</h5>
+        <h5 className="text-lg text-gray-500">Loading...</h5>
       ) : (
         <div>
           {/* Grid Layout */}
